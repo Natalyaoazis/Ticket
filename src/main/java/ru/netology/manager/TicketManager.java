@@ -33,7 +33,7 @@ public class TicketManager {
     public boolean matches(Ticket ticket, String departure, String arrival) {
         if (ticket.getDeparture().contains(departure) && ticket.getArrival().contains(arrival)) {
             return true;
-        }
+        } else
         return false;
     }
 }
