@@ -37,26 +37,10 @@ class TicketManagerTest {
         manager.add(ticket10);
     }
 
-
     @Test
-    public void shouldSortAllByPrice() {
-        Ticket[] expected = new Ticket[] {ticket10, ticket5, ticket2, ticket1, ticket3, ticket7, ticket6, ticket4, ticket9, ticket8};
-        Ticket[] actual= new Ticket[] {ticket10, ticket5, ticket2, ticket1, ticket3, ticket7, ticket6, ticket4, ticket9, ticket8};
-        Arrays.sort(actual);
-        assertArrayEquals(expected, actual);
-    }
-
-    @Test
-    public void shouldFindDMEToOVB() {
+    public void shouldFindFromDMEToOVB() {
         Ticket[] expected = new Ticket[] {ticket7, ticket6};
         Ticket[] actual = manager.searchBy("DME","OVB");
-        assertArrayEquals(expected, actual);
-    }
-    @Test
-    public void shouldSortByPriceFromDMEToKRR() {
-        Ticket[] expected = new Ticket[] {ticket10, ticket2, ticket1, ticket3, ticket9};
-        Ticket[] actual = manager.searchBy("DME","KRR");
-        Arrays.sort(actual);
         assertArrayEquals(expected, actual);
     }
 
@@ -64,14 +48,12 @@ class TicketManagerTest {
     public void shouldShowNothing() {
         Ticket[] expected = new Ticket[0] ;
         Ticket[] actual = manager.searchBy("KRR","OVB");
-        Arrays.sort(actual);
         assertArrayEquals(expected, actual);
     }
     @Test
     public void shouldFindKrrToDme() {
         Ticket[] expected = new Ticket[] {ticket5} ;
         Ticket[] actual = manager.searchBy("KRR","DME");
-        Arrays.sort(actual);
         assertArrayEquals(expected, actual);
     }
 }
